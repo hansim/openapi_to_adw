@@ -24,9 +24,9 @@ public class RESTRealEstateMansionTradeWriter implements ItemWriter<List<Estate_
         //LOGGER.info("lists.size() : " + lists.size());
 
         for (List<Estate_Real_Mansion_Trx> list : lists) {
-            logger.info("연립다세대 실거래가 데이터 수신, ADW 트랜잭션 시작. [" + list.size() + "]");
+            logger.info("연립다세대 실거래가 데이터 수신, ADW 트랜잭션 시작. [거래 건수 : " + list.size() + " 건]");
             realEstateTradeService.saveMansionTradeAll(list);
-            logger.info("연립다세대 실거래가 데이터 수신, ADW 트랜잭션 종료. [" + list.size() + "]");
+            logger.info("연립다세대 실거래가 데이터 수신, ADW 트랜잭션 종료. [거래 건수 : " + list.size() + " 건]");
 
             // for(Estate_Real_Trx_Apt aptTrade : list) {
             //     estateRealTrxAptRepository.saveAndFlush(aptTrade);

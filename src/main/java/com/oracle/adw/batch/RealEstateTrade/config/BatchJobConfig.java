@@ -149,7 +149,7 @@ public class BatchJobConfig {
     public Job realEstateTradeJob(@Qualifier("realEstateAptTradeStep") Step realEstateAptTradeStep, @Qualifier("realEstateHouseTradeStep") Step realEstateHouseTradeStep, @Qualifier("realEstateMansionTradeStep") Step realEstateMansionTradeStep) {
 
         ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
-		threadPoolTaskExecutor.setCorePoolSize(100);
+		threadPoolTaskExecutor.setCorePoolSize(CHUNK_AND_PAGE_SIZE);
         threadPoolTaskExecutor.afterPropertiesSet();
         
         Flow splitFlow = new FlowBuilder<Flow>("realEstateTradeStepSplitFlow")

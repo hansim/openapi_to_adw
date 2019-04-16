@@ -90,7 +90,7 @@ public class RESTRealEstateAptTradeReader implements ItemReader<List<AptTradeDTO
 
     // 해당 계약월에 해당하는 전국 아파트 실거래가 정보를 가져온다.
     private List<AptTradeDTO> fetchAptTradeDTOFromAPI(int sigu, String month) throws IOException {
-        logger.info("Fetching AptTrade data from an external API by using the url: {}", resturl);
+        logger.debug("Fetching AptTrade data from an external API by using the url: {}", resturl);
         JsonNode item = null;
 
         List<AptTradeDTO> aptTradeDTO = new ArrayList<AptTradeDTO>();
@@ -121,12 +121,12 @@ public class RESTRealEstateAptTradeReader implements ItemReader<List<AptTradeDTO
                 }
             }
             else {
-                logger.error("[" + sigu + "] data not found. It will return dummy AptTradeDTO.");
+                logger.error("[" + sigu + "] 아파트 거래 데이터 없음, 더미 데이터로 처리.");
                 return getDummyAptTrade();
             }
 
         } catch (Exception e) {
-            logger.error("[" + sigu + "] data not found. It will return dummy AptTradeDTO.");
+            logger.error("[" + sigu + "] 아파트 거래 데이터 없음, 더미 데이터로 처리.");
             return getDummyAptTrade();
         }
 

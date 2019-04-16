@@ -83,7 +83,7 @@ public class RESTRealEstateHouseTradeReader implements ItemReader<List<HouseTrad
 
         logger.debug("month : " + month);
 
-        logger.info(nextAddressSiGu.getSi() + " " + nextAddressSiGu.getGu() + "(" + nextAddressSiGu.getSigu() + ") 단독/다세대 실거래가 자료("+month+")를 수집합니다. [" + nextAddressSiGuIndex + "/" +addressSiGu.size() + "]");
+        logger.info(nextAddressSiGu.getSi() + " " + nextAddressSiGu.getGu() + "(" + nextAddressSiGu.getSigu() + ") 단독/다가구 실거래가 자료("+month+")를 수집합니다. [" + nextAddressSiGuIndex + "/" +addressSiGu.size() + "]");
         List<HouseTradeDTO> houseTradeData = fetchHouseTradeDTOFromAPI(nextAddressSiGu.getSigu(), month);
 
         return houseTradeData;
@@ -129,12 +129,12 @@ public class RESTRealEstateHouseTradeReader implements ItemReader<List<HouseTrad
                 }
             }
             else {
-                logger.error("[" + sigu + "] data not found. It will return dummy houseTradeDTO.");
+                logger.error("[" + sigu + "] 다세대/다가구 거래 데이터 없음, 더미 데이터로 처리.");
                 return getDummyHouseTrade();
             }
 
         } catch (Exception e) {
-            logger.error("[" + sigu + "] data not found. It will return dummy houseTradeDTO.");
+            logger.error("[" + sigu + "] 다세대/다가구 거래 데이터 없음, 더미 데이터로 처리.");
             return getDummyHouseTrade();
         }
 

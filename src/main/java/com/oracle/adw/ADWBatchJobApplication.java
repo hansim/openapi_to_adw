@@ -8,10 +8,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @EnableJpaRepositories(basePackages = {"com.oracle.adw.repository.jdbc", "com.oracle.adw.repository.jpa"})
 @SpringBootApplication
-public class DemoApplication {
+public class ADWBatchJobApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(ADWBatchJobApplication.class, args);
 	}
 
 }

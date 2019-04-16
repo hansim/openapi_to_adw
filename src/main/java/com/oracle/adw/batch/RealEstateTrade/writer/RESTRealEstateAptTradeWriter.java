@@ -23,9 +23,9 @@ public class RESTRealEstateAptTradeWriter implements ItemWriter<List<Estate_Real
         logger.debug("Received the information of {} array", lists.size());
         
         for (List<Estate_Real_Apt_Trx> list : lists) {
-            logger.info("아파트 실거래가 데이터 수신, ADW 트랜잭션 시작. [" + list.size() + "]");
+            logger.info("아파트 실거래가 데이터 수신, ADW 트랜잭션 시작. [거래 건수 : " + list.size() + " 건]");
             realEstateTradeService.saveAptTradeAll(list);
-            logger.info("아파트 실거래가 데이터 수신, ADW 트랜잭션 종료. [" + list.size() + "]");
+            logger.info("아파트 실거래가 데이터 수신, ADW 트랜잭션 종료. [거래 건수 : " + list.size() + " 건]");
         }
     }
 }

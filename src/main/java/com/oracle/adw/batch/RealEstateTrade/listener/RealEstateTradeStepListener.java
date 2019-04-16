@@ -24,10 +24,7 @@ public class RealEstateTradeStepListener implements StepExecutionListener {
  
     @Override
     public ExitStatus afterStep(StepExecution stepExecution) {
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String endTime = sf.format(stepExecution.getEndTime());
-
-        logger.info("[" + endTime + "] " + stepExecution.getStepName() + " 완료...");
+        logger.info(stepExecution.getStepName() + " 완료...");
         return ExitStatus.COMPLETED;
     }
 }

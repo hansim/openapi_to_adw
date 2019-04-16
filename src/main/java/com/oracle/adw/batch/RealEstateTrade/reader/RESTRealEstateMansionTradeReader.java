@@ -129,12 +129,12 @@ public class RESTRealEstateMansionTradeReader implements ItemReader<List<Mansion
                 }
             }
             else {
-                logger.error("[" + sigu + "] data not found. It will return dummy mansionTradeDTO.");
+                logger.error("[" + sigu + "] 연립다세대 거래 데이터 없음, 더미 데이터로 처리.");
                 return getDummyMansionTrade();
             }
 
         } catch (Exception e) {
-            logger.error("[" + sigu + "] data not found. It will return dummy houseTradeDTO.");
+            logger.error("[" + sigu + "] 연립다세대 거래 데이터 없음, 더미 데이터로 처리.");
             return getDummyMansionTrade();
         }
 
