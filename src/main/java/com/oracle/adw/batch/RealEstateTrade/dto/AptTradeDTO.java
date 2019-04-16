@@ -1,7 +1,12 @@
-package com.oracle.adw.batch.RealEstateTrade;
+package com.oracle.adw.batch.RealEstateTrade.dto;
 
-public class AptTradeDTO {
-    private String 계약월;
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class AptTradeDTO implements Serializable {
+    //private String 계약월;
     private String 거래금액;
     private String 건축년도;
     private String 년;
@@ -14,18 +19,18 @@ public class AptTradeDTO {
     private String 지역코드;
     private String 층;
 
-    public String get계약월() {
-        return this.계약월;
-    }
+    // public String get계약월() {
+    //     return this.계약월;
+    // }
 
-    public void set계약월(String 계약월) {
-        this.계약월 = 계약월;
-    }
+    // public void set계약월(String 계약월) {
+    //     this.계약월 = 계약월;
+    // }
 
-    public AptTradeDTO 계약월(String 계약월) {
-        this.계약월 = 계약월;
-        return this;
-    }
+    // public AptTradeDTO 계약월(String 계약월) {
+    //     this.계약월 = 계약월;
+    //     return this;
+    // }
 
     public String get거래금액() {
         return this.거래금액;

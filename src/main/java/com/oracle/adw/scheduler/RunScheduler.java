@@ -1,5 +1,8 @@
 package com.oracle.adw.scheduler;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.Job;
@@ -8,7 +11,6 @@ import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 // "0 0 * * * *" = the top of every hour of every day.
@@ -32,17 +34,22 @@ public class RunScheduler {
     //@Qualifier("SendRealEstateTradeDataToADWJob")
     //Job SendRealEstateTradeDataToADWJob;
 
-    @Scheduled(cron = "${batch.cron}")
-    public void performTask() throws Exception {
+    //@Scheduled(cron = "${batch.cron}")
+    public void performRealEstateTradeJob() throws Exception {
 
         Logger logger = LoggerFactory.getLogger(RunScheduler.class);
 
-        logger.info("1초마다");
+        logger.info("스케쥴러 시작");
 
-        JobParameters params = new JobParametersBuilder()
+        SimpleDateFormat format1 = new SimpleDateFormat ( "yyyyMM");
+        Date time = new Date();
+        String currentMonth = format1.format(time);
+            
+        JobParameters jobParameters = new JobParametersBuilder()
         .addString("JobID", String.valueOf(System.currentTimeMillis()))
+        .addString("currentMonth", currentMonth)
         .toJobParameters();
         
-        jobLauncher.run(realEstateTradeJob, params);
+        jobLauncher.run(realEstateTradeJob, jobParameters);
     }
 }
