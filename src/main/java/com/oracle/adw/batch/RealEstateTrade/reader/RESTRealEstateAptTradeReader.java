@@ -97,7 +97,9 @@ public class RESTRealEstateAptTradeReader implements ItemReader<List<AptTradeDTO
 
         try {
             URI uri = new URI(resturl + "?serviceKey=" + serviceKey + "&LAWD_CD=" + sigu + "&DEAL_YMD=" + month);
-
+            logger.info("===================================================");
+            logger.info("Open API URL :" + uri.toString());
+            logger.info("===================================================");
             ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
 
             ObjectMapper mapper = new ObjectMapper();

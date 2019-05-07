@@ -34,12 +34,15 @@ public class Estate_Real_House_Trx implements Serializable {
     private String 법정동;
 
     @Column(name = "연면적")
+    @Id
     private String 연면적;
     
     @Column(name = "월")
+    @Id
     private String 월;
 
     @Column(name = "일")
+    @Id
     private String 일;
 
     @Column(name = "주택유형")

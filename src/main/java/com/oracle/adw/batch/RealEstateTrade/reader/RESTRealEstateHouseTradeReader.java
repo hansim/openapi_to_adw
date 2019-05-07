@@ -106,6 +106,10 @@ public class RESTRealEstateHouseTradeReader implements ItemReader<List<HouseTrad
         try {
             URI uri = new URI(resturl + "?serviceKey=" + serviceKey + "&LAWD_CD=" + sigu + "&DEAL_YMD=" + month);
 
+            logger.info("===================================================");
+            logger.info("Open API URL :" + uri.toString());
+            logger.info("===================================================");
+            
             ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
 
             ObjectMapper mapper = new ObjectMapper();
@@ -129,12 +133,12 @@ public class RESTRealEstateHouseTradeReader implements ItemReader<List<HouseTrad
                 }
             }
             else {
-                logger.error("[" + sigu + "] 다세대/다가구 거래 데이터 없음, 더미 데이터로 처리.");
+                logger.error("[" + sigu + "] 단독/다가구 거래 데이터 없음, 더미 데이터로 처리.");
                 return getDummyHouseTrade();
             }
 
         } catch (Exception e) {
-            logger.error("[" + sigu + "] 다세대/다가구 거래 데이터 없음, 더미 데이터로 처리.");
+            logger.error("[" + sigu + "] 단독/다가구 거래 데이터 없음, 더미 데이터로 처리.");
             return getDummyHouseTrade();
         }
 

@@ -8,4 +8,5 @@ public class Estate_Real_Apt_Trx_Keys implements Serializable{
     private String 지역코드;
     private String 아파트;
     private String 지번;
+    private String 층;
 }

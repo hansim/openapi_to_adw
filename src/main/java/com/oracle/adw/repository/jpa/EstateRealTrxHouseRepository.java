@@ -5,7 +5,10 @@ import com.oracle.adw.repository.entity.Estate_Real_House_Trx_Keys;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(isolation = Isolation.READ_COMMITTED)
 @Repository
 public interface EstateRealTrxHouseRepository extends JpaRepository<Estate_Real_House_Trx, Estate_Real_House_Trx_Keys> {
     //@Modifying

@@ -50,6 +50,7 @@ public class Estate_Real_Apt_Trx implements Serializable {
     private String 지역코드;
 
     @Column(name = "층")
+    @Id
     private String 층;
 
     @Column(name = "주택유형")

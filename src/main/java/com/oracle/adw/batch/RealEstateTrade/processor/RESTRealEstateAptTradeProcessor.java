@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @StepScope
 public class RESTRealEstateAptTradeProcessor implements ItemProcessor<List<AptTradeDTO>, List<Estate_Real_Apt_Trx>> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RESTRealEstateAptTradeProcessor.class);
+    private static final Logger logger = LoggerFactory.getLogger(RESTRealEstateAptTradeProcessor.class);
 
     @Value("#{jobParameters[month]}")
     private String month;
@@ -25,7 +25,6 @@ public class RESTRealEstateAptTradeProcessor implements ItemProcessor<List<AptTr
     public List<Estate_Real_Apt_Trx> process(List<AptTradeDTO> list) throws Exception {
         
         List<Estate_Real_Apt_Trx> estate_Real_Apt_Trx_List = new ArrayList<Estate_Real_Apt_Trx>();
-
         for(AptTradeDTO aptTrade : list) {
             Estate_Real_Apt_Trx estate_Real_Apt_Trx = new Estate_Real_Apt_Trx();
             
